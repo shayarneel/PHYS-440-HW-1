@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-class Sphere: NSObject, ObservableObject {
+class Sphere: Ellipsoid {
     
     //Declaring suff radius, coordinates of the centre of the sphere, a variable for the volume, surface area, and a string to recorde the volume anda sirface area. Lastly, we have the enable button to prevent the program from running without inputs, effectively a sanity check.
     var RadiusLength = 0.0
     var CenterOfASphere = (x:0.0, y:0.0, z:0.0)
-    @Published var Volume = 1.0
-    @Published var SurfaceArea = 1.0
-    @Published var VolumeText = ""
-    @Published var SurfaceAreaText = ""
-    @Published var EnableButton = true
+
     
     /// initsphere Initializes the sphere and computes the volume and surface area
     /// - Parameters:
@@ -30,7 +26,7 @@ class Sphere: NSObject, ObservableObject {
             
     
         
-            taskGroup.addTask { let _ = await self.CalculateVolume(radius: self.RadiusLength)}
+            taskGroup.addTask { let _ = await self.CalculateVolume(AxisOne: self.RadiusLength, AxisTwo: self.RadiusLength, AxisThree: self.RadiusLength)}
             taskGroup.addTask { let _ = await self.CalculateSurfaceArea(radius: self.RadiusLength)}
         
             
@@ -53,20 +49,20 @@ class Sphere: NSObject, ObservableObject {
     ///Computes the volume for a given radius
     /// - Parameters:
     ///   - radius: radius of sphere  (units of length)
-    func CalculateVolume(radius: Double) async -> Double {
+    //func CalculateVolume(radius: Double) async -> Double {
         
         //Area = (4/3) * pi * r^{3}
         
-        let CalculatedVolume = (4.0/3.0) * Double.pi * radius * radius * radius
-        let NewVolumeTextString = String(format: "%7.5f", CalculatedVolume)
+        //let CalculatedVolume = (4.0/3.0) * Double.pi * radius * radius * radius
+        //let NewVolumeTextString = String(format: "%7.5f", CalculatedVolume)
         
-        await UpdateVolume(VolumeTextString: NewVolumeTextString)
-        await NewVolumeValue(VolumeValue: CalculatedVolume)
+        //await UpdateVolume(VolumeTextString: NewVolumeTextString)
+        //await NewVolumeValue(VolumeValue: CalculatedVolume)
         
-        return CalculatedVolume
+       // return CalculatedVolume
         
         
-    }
+    //}
     
     ///CalculateSurfaceArea
     ///Computes the Surface Area of  sphere for a given radius
@@ -87,66 +83,5 @@ class Sphere: NSObject, ObservableObject {
         
     }
     
-    /// setButton Enable
-    /// Toggles the state of the Enable Button on the Main Thread
-    /// - Parameter state: Boolean describing whether the button should be enabled.
-    @MainActor func setButtonEnable(state: Bool){
-        
-        
-        if state {
-            
-            Task.init {
-                await MainActor.run {
-                    
-                    
-                    self.EnableButton = true
-                }
-            }
-            
-            
-                
-        }
-        else{
-            
-            Task.init {
-                await MainActor.run {
-                    
-                    
-                    self.EnableButton = false
-                }
-            }
-                
-        }
-        
-    }
-    
-    /// UpdateVolume and UpdateSurfaceArea
-    /// Executes on the main thread
-    /// - Parameter areaTextString: Text describing the value of the area
-    @MainActor func UpdateVolume(VolumeTextString: String){
-        
-       VolumeText = VolumeTextString
-        
-    }
-    
-    @MainActor func NewVolumeValue(VolumeValue: Double){
-        
-        self.Volume = VolumeValue
-        
-    }
-    
-    @MainActor func NewSurfaceAreaValue(SurfaceAreaValue: Double){
-        
-        self.SurfaceArea = SurfaceAreaValue
-        
-    }
-    
-
-    @MainActor func UpdateSurfaceArea(SurfaceAreaTextString:String){
-        
-        SurfaceAreaText = SurfaceAreaTextString
-        
-        
-    }
     
 }

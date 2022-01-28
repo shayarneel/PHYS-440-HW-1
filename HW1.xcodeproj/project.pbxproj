@@ -19,6 +19,8 @@
 		2BE12841279B799400C70528 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE12816279B799300C70528 /* Assets.xcassets */; };
 		2BE12851279B79C900C70528 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE12850279B79C900C70528 /* Sphere.swift */; };
 		2BE12852279B79C900C70528 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE12850279B79C900C70528 /* Sphere.swift */; };
+		2BE1285427A39BE100C70528 /* Ellipsoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1285327A39BE100C70528 /* Ellipsoid.swift */; };
+		2BE1285527A39BE100C70528 /* Ellipsoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1285327A39BE100C70528 /* Ellipsoid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		2BE12838279B799400C70528 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		2BE1283A279B799400C70528 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		2BE12850279B79C900C70528 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		2BE1285327A39BE100C70528 /* Ellipsoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ellipsoid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 				2BE12814279B799100C70528 /* HW1App.swift */,
 				2BE12815279B799100C70528 /* ContentView.swift */,
 				2BE12850279B79C900C70528 /* Sphere.swift */,
+				2BE1285327A39BE100C70528 /* Ellipsoid.swift */,
 				2BE12816279B799300C70528 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -306,6 +310,7 @@
 				2BE1283E279B799400C70528 /* ContentView.swift in Sources */,
 				2BE1283C279B799400C70528 /* HW1App.swift in Sources */,
 				2BE12851279B79C900C70528 /* Sphere.swift in Sources */,
+				2BE1285427A39BE100C70528 /* Ellipsoid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +321,7 @@
 				2BE1283F279B799400C70528 /* ContentView.swift in Sources */,
 				2BE1283D279B799400C70528 /* HW1App.swift in Sources */,
 				2BE12852279B79C900C70528 /* Sphere.swift in Sources */,
+				2BE1285527A39BE100C70528 /* Ellipsoid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
