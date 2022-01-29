@@ -27,7 +27,7 @@ struct ContentView: View {
                 VStack{
             Text("Volume")
                 .padding(.bottom, 0)
-            TextField("", text: $SphereModel.VolumeText)
+            TextField("", text: $SphereModel.BBVText)
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -37,7 +37,7 @@ struct ContentView: View {
         VStack{
             Text("Volume")
                 .padding(.bottom, 0)
-            Text("\(SphereModel.Volume, specifier: "%.2f")")
+            Text("\(SphereModel.BBV, specifier: "%.2f")")
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -49,7 +49,7 @@ struct ContentView: View {
                 VStack{
             Text("Surface Area")
                 .padding(.bottom, 0)
-            TextField("", text: ( $SphereModel.SurfaceAreaText))
+            TextField("", text: ( $SphereModel.BBSAText))
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -58,7 +58,7 @@ struct ContentView: View {
                 VStack{
                     Text("Surface Area")
                         .padding(.bottom, 0)
-                    Text("\(SphereModel.SurfaceArea, specifier: "%.2f")")
+                    Text("\(SphereModel.BBSA, specifier: "%.2f")")
                         .padding(.horizontal)
                         .frame(width: 100)
                         .padding(.top, 0)
@@ -69,6 +69,52 @@ struct ContentView: View {
                 
                 
             }
+            
+            HStack {
+                VStack{
+            Text("Bounding Box Volume")
+                .padding(.bottom, 0)
+            TextField("", text: $SphereModel.VolumeText)
+                .padding(.horizontal)
+                .frame(width: 100)
+                .padding(.top, 0)
+                .padding(.bottom,30)
+            
+        }
+        VStack{
+            Text("Bounding Box Volume")
+                .padding(.bottom, 0)
+            Text("\(SphereModel.Volume, specifier: "%.2f")")
+                .padding(.horizontal)
+                .frame(width: 100)
+                .padding(.top, 0)
+                .padding(.bottom,30)
+                
+            }
+            }
+            HStack{
+                VStack{
+            Text("Bounding Box Surface Area")
+                .padding(.bottom, 0)
+            TextField("", text: ( $SphereModel.SurfaceAreaText))
+                .padding(.horizontal)
+                .frame(width: 100)
+                .padding(.top, 0)
+                .padding(.bottom, 30)
+                }
+                VStack{
+                    Text("Bounding Box Surface Area")
+                        .padding(.bottom, 0)
+                    Text("\(SphereModel.SurfaceArea, specifier: "%.2f")")
+                        .padding(.horizontal)
+                        .frame(width: 100)
+                        .padding(.top, 0)
+                        .padding(.bottom,30)
+                        
+                    }
+
+            }
+                
             
             Button("Calculate", action: {Task.init { await self.calculateCircle()}})
                 .padding(.bottom)
